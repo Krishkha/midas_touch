@@ -4,6 +4,8 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Images } from "../assets/images";
+import { GoArrowUpRight } from "react-icons/go";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const data = [
   {
@@ -52,12 +54,17 @@ const data = [
 
 const Slider = () => {
   return (
-    <div className="w-full px-6 py-10 bg-[#fdf8f6]">
+    <div className="w-full  px-6 py-10 bg-[#5C0A080D]">
       <div className="text-center mb-6 flex justify-between">
-        <h2 className="text-2xl font-bold text-[#5b0c0c] relative inline-block">
+        <h2
+          className="text-2xl font-bold text-[#5b0c0c] relative inline-block"
+          style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
+        >
           Our Work, Your Escape
-          <span className="block w-20 h-[2px] bg-[#5b0c0c] mx-auto mt-1"></span>
+          {/* <span className="block w-60 h-1 bg-[#5b0c0c] mt-1"></span> */}
+          <img src={Images.h1_underline} className="w-60" alt="" />
         </h2>
+
         {/* Navigation Arrows */}
         <div className="flex gap-2 z-10">
           <button className="prev-btn bg-[#5b0c0c] text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#400909]">
@@ -87,23 +94,34 @@ const Slider = () => {
         //   768: { slidesPerView: 2 },
         //   1024: { slidesPerView: 3 },
         // }}
-        className="gap-0"
+        className="gap-0 h-100"
       >
         {data.map((p) => (
-          <SwiperSlide key={p.id}>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col w-80">
+          <SwiperSlide key={p.id} className="overflow-visible">
+            <div className="bg-white rounded-lg shadow-md flex flex-col w-80 relative pb-5 overflow-visible">
               <img
                 src={p.img}
                 alt={p.title}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-[#5b0c0c] mb-2">
+                <h3
+                  className="text-lg font-bold text-[#5b0c0c] mb-2"
+                  style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
+                >
                   {p.title}
                 </h3>
-                <p className="text-sm text-gray-600 flex-grow">{p.desc}</p>
-                <button className="mt-4 bg-[#5b0c0c] text-white px-4 py-2 rounded-md hover:bg-[#400909] transition">
-                  Read More →
+                <p
+                  className="text-[12px] text-gray-600 flex-grow overflow-hidden text-ellipsis line-clamp-2"
+                  style={{ fontFamily: "Lexend", fontWeight: 500 }}
+                >
+                  {p.desc}
+                </p>
+                <button
+                  className=" bg-[#5b0c0c] text-white py-2 rounded-md hover:bg-[#400909] transition w-30 flex items-center justify-center gap-2 absolute top-75"
+                  style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
+                >
+                  Read More <FiArrowUpRight className="text-white text-lg" />
                 </button>
               </div>
             </div>
