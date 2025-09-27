@@ -3,6 +3,7 @@ import { Images } from "../assets/images";
 import Btnlayout from "../component/Btnlayout";
 import Swiper from "../component/Slider";
 import Slider from "../component/Slider";
+import { FaAnglesRight } from "react-icons/fa6";
 
 const Landingpage = () => {
   const data = [
@@ -186,6 +187,48 @@ const Landingpage = () => {
       {/* section 3 */}
       <section>
         <Slider />
+      </section>
+
+      {/* section 4 */}
+
+      <section className="relative w-full h-[700px] flex justify-evenly items-center">
+        <img
+          src={Images.banner_2}
+          alt="Banner"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>  
+
+        <div className="flex flex-col gap-7">
+          <h1
+            className="text-white text-5xl font-bold drop-shadow-lg mb-4"
+            style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
+          >
+            Discover the Midas Lifestyle
+          </h1>
+          <p
+            className=" text-white text-lg max-w-2xl z-10"
+            style={{ fontFamily: "Lexend", fontWeight: 400 }}
+          >
+            Explore our signature villas and resorts — where nature meets
+            comfort and elegance.
+          </p>
+          
+          <button className="bg-white z-10 w-40 gap-3 py-3 rounded-[7px] flex justify-center items-center flex-row">
+            <p style={{ fontFamily: "Bree Serif", fontWeight: 400 }} className="text-[#5C0A08]">
+              Discover More
+            </p>
+              <FaAnglesRight className="text-[#5C0A08]" />
+          </button>
+        </div>
+
+        <div className="w-50 h-50 z-10">
+          <div className="w-30 h-30 bg-[#cdcbcb45] rounded-full flex justify-center items-center" >
+            <div className="bg-white w-23 h-23 rounded-full flex justify-center items-center">
+              <img src={Images.play_button} alt="" className="w-7 h-auto" />
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
