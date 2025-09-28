@@ -18,9 +18,9 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-red-800 flex justify-center items-center rounded-full">
               <FaPhoneAlt className="text-white text-lg" />
             </div>
-            <div>
-              <p className="font-semibold text-gray-700">Call Us</p>
-              <p className="text-gray-600">+91 1234567890</p>
+            <div style={{ fontFamily: "Lexend", fontWeight: 700 }}>
+              <p className="font-semibold text-[#5C0A08]">Call Us</p>
+              <p className="text-black">+91 1234567890</p>
             </div>
           </div>
 
@@ -28,9 +28,9 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-red-800 flex justify-center items-center rounded-full">
               <FaEnvelope className="text-white text-lg" />
             </div>
-            <div>
-              <p className="font-semibold text-gray-700">Mail Us</p>
-              <p className="text-gray-600">mwt2025@gmail.com</p>
+            <div style={{ fontFamily: "Lexend", fontWeight: 700 }}>
+              <p className="font-semibold text-[#5C0A08]">Mail Us</p>
+              <p className="text-black">mwt2025@gmail.com</p>
             </div>
           </div>
         </div>
@@ -53,8 +53,8 @@ const Navbar = () => {
       </div>
 
       <div className="bg-red-900 text-white px-6 py-3 flex justify-between items-center">
-        <ul className="flex space-x-8 font-medium">
-          <li className="cursor-pointer hover:text-yellow-400">Home</li>
+        <ul className="flex space-x-8 font-medium" style={{ fontFamily: "Lexend", fontWeight: 500 }}>
+          <li className="cursor-pointer hover:text-yellow-400" >Home</li>
           <li className="cursor-pointer hover:text-yellow-400">About Us</li>
           <li className="cursor-pointer hover:text-yellow-400 relative group">
             Projects <span className="ml-1">▼</span>

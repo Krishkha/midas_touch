@@ -87,13 +87,15 @@ const Slider = () => {
         slidesPerView={"auto"} // makes w-80 respected
         centeredSlides={false} // remove extra centering space
         grabCursor={true}
-        slidesPerView={5}
+        // slidesPerView={5}
         loop={true}
-        // breakpoints={{
-        //   0: { slidesPerView: 1 },
-        //   768: { slidesPerView: 2 },
-        //   1024: { slidesPerView: 3 },
-        // }}
+        breakpoints={{
+          0: { slidesPerView: 1 }, // Mobile
+          640: { slidesPerView: 2 }, // Small screens
+          1024: { slidesPerView: 3 }, // Tablet
+          1280: { slidesPerView: 4 }, // Desktop
+          1536: { slidesPerView: 5 }, // Large screens
+        }}
         className="gap-0 h-100"
       >
         {data.map((p) => (
