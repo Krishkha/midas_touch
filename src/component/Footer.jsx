@@ -41,7 +41,7 @@ const Footer = () => {
   ];
   return (
     <div className="h-auto">
-      <div className="px-15 flex justify-between">
+      <div className="px-15 flex justify-between flex-wrap">
         <div className="w-70 py-10 gap-10">
           <img src={Images.logo} alt="" className="w-30 h-auto mt-5" />
           <p style={{ fontFamily: "Jost", fontWeight: 500 }} className="mt-5">
@@ -72,12 +72,17 @@ const Footer = () => {
             className="text-[20px] text-[#5C0A08]"
           >
             Quick Link
+
+            <div className="flex gap-2 mt-1">
+              <div className="w-20 h-[2px] bg-[#5C0A08]"></div>
+              <div className="w-10 h-[2px] bg-[#5C0A08]"></div>
+            </div>
           </h2>
 
-          <div className="gap-10">
+          <div className="gap-5">
             {quickLink.map((item) => (
               <h3
-                className="flex items-center gap-2 mt-5"
+                className="flex items-center gap-2 mt-2"
                 style={{ fontFamily: "Jost", fontWeight: 500 }}
               >
                 <FaAngleRight className="text-[#5C0A08]" /> {item}
@@ -92,12 +97,16 @@ const Footer = () => {
             className="text-[20px] text-[#5C0A08]"
           >
             Our Projects
+            <div className="flex gap-2 mt-1">
+              <div className="w-20 h-[2px] bg-[#5C0A08]"></div>
+              <div className="w-10 h-[2px] bg-[#5C0A08]"></div>
+            </div>
           </h2>
 
           <div className="gap-10">
             {ourProjacts.map((item) => (
               <h3
-                className="flex items-center gap-2 mt-3"
+                className="flex items-center gap-2 mt-2"
                 style={{ fontFamily: "Jost", fontWeight: 500 }}
               >
                 <FaAngleRight className="text-[#5C0A08]" /> {item}
@@ -112,6 +121,10 @@ const Footer = () => {
             className="text-[20px] text-[#fff]"
           >
             Contact Us
+            <div className="flex gap-2 mt-1">
+              <div className="w-20 h-[2px] bg-[#fff]"></div>
+              <div className="w-10 h-[2px] bg-[#fff]"></div>
+            </div>
           </h2>
 
           {contactUs.map((item) => (
