@@ -4,8 +4,8 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Images } from "../assets/images";
-import { GoArrowUpRight } from "react-icons/go";
 import { FiArrowUpRight } from "react-icons/fi";
+import { motion } from "framer-motion"; // 👈 Add this
 
 const data = [
   {
@@ -54,23 +54,22 @@ const data = [
 
 const Slider = () => {
   return (
-    <div className="w-full  px-6 py-10 bg-[#5C0A080D]">
+    <div className="w-full px-6 py-10 bg-[#5C0A080D]">
       <div className="text-center mb-6 flex justify-between">
         <h2
-          className="text-2xl font-bold text-[#5b0c0c] relative inline-block"
+          className="text-xl sm:text-2xl  md:text-3xl font-bold text-[#5b0c0c] relative inline-block"
           style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
         >
           Our Work, Your Escape
-          {/* <span className="block w-60 h-1 bg-[#5b0c0c] mt-1"></span> */}
           <img src={Images.h1_underline} className="w-60" alt="" />
         </h2>
 
         {/* Navigation Arrows */}
         <div className="flex gap-2 z-10">
-          <button className="prev-btn bg-[#5b0c0c] text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#400909]">
+          <button className="prev-btn bg-[#5b0c0c] text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#400909] transition">
             <img src={Images.left_arrow} alt="" className="w-7 h-7" />
           </button>
-          <button className="next-btn bg-[#5b0c0c] text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#400909]">
+          <button className="next-btn bg-[#5b0c0c] text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#400909] transition">
             <img src={Images.right_arrow} alt="" className="w-7 h-7" />
           </button>
         </div>
@@ -83,28 +82,44 @@ const Slider = () => {
           nextEl: ".next-btn",
           prevEl: ".prev-btn",
         }}
-        spaceBetween={0} // 👈 reduce the gap (default often 30)
-        slidesPerView={"auto"} // makes w-80 respected
-        centeredSlides={false} // remove extra centering space
+        spaceBetween={0}
+        slidesPerView={"auto"}
         grabCursor={true}
-        // slidesPerView={5}
         loop={true}
         breakpoints={{
-          0: { slidesPerView: 1 }, // Mobile
-          640: { slidesPerView: 2 }, // Small screens
-          1024: { slidesPerView: 3 }, // Tablet
-          1280: { slidesPerView: 4 }, // Desktop
-          1536: { slidesPerView: 5 }, // Large screens
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 3 },
+          1536: { slidesPerView: 4, spaceBetween: -200 },
+          2038: { slidesPerView: 5, spaceBetween: -200 },
+          2650: { slidesPerView: 7, spaceBetween: -200 },
         }}
         className="gap-0 h-100"
       >
-        {data.map((p) => (
+        {data.map((p, index) => (
           <SwiperSlide key={p.id} className="overflow-visible">
-            <div className="bg-white rounded-lg shadow-md flex flex-col w-80 relative pb-5 overflow-visible">
-              <img
+            <motion.div
+              className="bg-white rounded-lg shadow-md flex flex-col w-80 relative pb-5 overflow-visible"
+              initial={{ opacity: 0, y: 40 }} // fade & slide-up
+              whileInView={{ opacity: 1, y: 0 }} // animate in view
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                scale: 1.03,
+                boxShadow: "0px 8px 24px rgba(0,0,0,0.15)",
+              }} // hover animation
+            >
+              <motion.img
                 src={p.img}
                 alt={p.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover rounded-t-lg"
+                whileHover={{ scale: 1.03 }} // zoom on hover
+                transition={{ duration: 0.4 }}
               />
               <div className="p-4 flex flex-col flex-grow">
                 <h3
@@ -119,14 +134,16 @@ const Slider = () => {
                 >
                   {p.desc}
                 </p>
-                <button
+                <motion.button
                   className=" bg-[#5b0c0c] text-white py-2 rounded-md hover:bg-[#400909] transition w-30 flex items-center justify-center gap-2 absolute top-75"
                   style={{ fontFamily: "Bree Serif", fontWeight: 400 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Read More <FiArrowUpRight className="text-white text-lg" />
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "./component/Navbar";
-import Landingpage from "./pages/Landingpage";
 import Footer from "./component/Footer";
+import Landingpage from "./pages/Landingpage/Landingpage";
 
 const App = () => {
   return (
     <div className=" h-auto">
       <Navbar />
       <Landingpage />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
