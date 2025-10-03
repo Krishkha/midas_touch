@@ -8,7 +8,7 @@ const App = () => {
     <div className=" h-auto">
       <Navbar />
       <Landingpage />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
